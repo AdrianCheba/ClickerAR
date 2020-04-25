@@ -10,8 +10,8 @@ public class Menu : MonoBehaviour
     public Image menu;
     void Start()
     {
-        btnSzalka1 = GameObject.Find("Button");
-        btnSzalka2 = GameObject.Find("Button2");
+        btnSzalka1 = GameObject.Find("Rozwin");
+        btnSzalka2 = GameObject.Find("Zwin");
         menu = menu.GetComponent<Image>();
 
         btnSzalka2.SetActive(false);

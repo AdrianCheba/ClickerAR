@@ -11,7 +11,7 @@ public class Main : MonoBehaviour
     public GameObject stajnia;
     public Text txt;
 
-    int licznik = 0;
+    public int licznik = 0;
 
     void Start()
     {
