@@ -20,6 +20,14 @@ public class Shopping : MonoBehaviour
     public GameObject magazyn;
     public GameObject domSzlachty;
     public GameObject stajnia;
+    public GameObject Clvl2;
+    public GameObject Clvl3;
+    public GameObject Mlvl2;
+    public GameObject Mlvl3;  
+    public GameObject Slvl2;
+    public GameObject Slvl3; 
+    public GameObject Dlvl2;
+    public GameObject Dlvl3;
 
     GameObject ratusz;
     Main main;
@@ -54,12 +62,28 @@ public class Shopping : MonoBehaviour
         magazyn = GameObject.Find("magazyn");
         domSzlachty = GameObject.Find("domSzlachty");
         stajnia = GameObject.Find("stajnia");
+        Clvl2 = GameObject.Find("Clvl2");
+        Clvl3 = GameObject.Find("Clvl3");
+        Mlvl2 = GameObject.Find("Mlvl2");
+        Mlvl3 = GameObject.Find("Mlvl3");
+        Slvl2 = GameObject.Find("Slvl2");
+        Slvl3 = GameObject.Find("Slvl3");  
+        Dlvl2 = GameObject.Find("Dlvl2");
+        Dlvl3 = GameObject.Find("Dlvl3");
         main = ratusz.GetComponent<Main>();
+
 
         btnStajnia.interactable = false;
         btnMagazyn.interactable = false;
         btnDomSzlachty.interactable = false;
-
+        Clvl2.SetActive(false);
+        Clvl3.SetActive(false);
+        Mlvl2.SetActive(false);
+        Mlvl3.SetActive(false);
+        Slvl2.SetActive(false);
+        Slvl3.SetActive(false);
+        Dlvl2.SetActive(false);
+        Dlvl3.SetActive(false);
     }
 
 
@@ -107,7 +131,15 @@ public class Shopping : MonoBehaviour
             punkty = 64;
             btnDomSzlachty.interactable = true;
             main.licznik -= 2500;
-            Rflaga = 3;
+            Rflaga = 7500;
+        } 
+        else if(main.licznik >= 7500 && Rflaga >= 7500)
+        {
+            RLVL += 1;
+            punkty = 25*RLVL;
+            btnDomSzlachty.interactable = true;
+            main.licznik -= Rflaga;
+            Rflaga += (Rflaga/2);
         }
     }
 
@@ -119,6 +151,15 @@ public class Shopping : MonoBehaviour
             CLVL += 1;
             Cflaga += 25;
             chata.SetActive(isActiveAndEnabled);
+
+            if(CLVL == 2)
+            {
+                Clvl2.SetActive(true);
+            }
+            else if (CLVL == 3)
+            {
+                Clvl3.SetActive(true);
+            }
         }
     }
 
@@ -130,6 +171,15 @@ public class Shopping : MonoBehaviour
             MLVL += 1;
             Mflaga += 125;
             magazyn.SetActive(isActiveAndEnabled);
+
+            if (MLVL == 2)
+            {
+                Mlvl2.SetActive(true);
+            }
+            else if (MLVL == 3)
+            {
+                Mlvl3.SetActive(true);
+            }
         }
     }
 
@@ -141,6 +191,15 @@ public class Shopping : MonoBehaviour
             SLVL += 1;
             Sflaga += 525;
             stajnia.SetActive(isActiveAndEnabled);
+
+            if (SLVL == 2)
+            {
+                Slvl2.SetActive(true);
+            }
+            else if (SLVL == 3)
+            {
+                Slvl3.SetActive(true);
+            }
         }
     }
 
@@ -152,6 +211,15 @@ public class Shopping : MonoBehaviour
             DLVL += 1;
             Dflaga += 1025;
             domSzlachty.SetActive(isActiveAndEnabled);
+
+            if (DLVL == 2)
+            {
+                Dlvl2.SetActive(true);
+            }
+            else if (DLVL == 3)
+            {
+                Dlvl3.SetActive(true);
+            }
         }
     }
 }
